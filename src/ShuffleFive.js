@@ -4,37 +4,27 @@ import {checkIfNameMatch} from "./NameMatch";
 //import jquery from 'jquery';
 
 export let shuffle = (res) => {
-    //shuffle && iterate
-    let names = _.shuffle(res.data.items
-        .map(name => {
-            //return name.firstName.concat(name.lastName).concat(`<img class="willow-img" src="${name.headshot.url}">`);
-
-               return (`
-                   <li class="emp-list">
-                     <img class="willow-img" src="${name.headshot.url}">
-                     <span class="willow-names">${name.firstName} ${name.lastName}</span>
-                     <span class="willow-id">${name.id}</span>
-                   </li>
-                `)
-
-        })
-    );
-
-    //extract 1st element through the 5th element && remove comas in between
-    let showFiveNames = names.splice(0, 5);
+    //extract 1st element through the 5th element
+    const fiveNames = _.shuffle(res.data.items).slice(0,5)
+    const showFiveNames = fiveNames.reduce((a, name) => {
+        return a +
+            `
+                <li class="emp-list">
+                  <img class="willow-img" id="${name.id}" src="${name.headshot.url}" />
+                  <span class="willow-names">${name.firstName} ${name.lastName}</span>
+                </li>
+            `
+    }, '');
     //console.log(showFiveNames);
-    let whoIs = _.shuffle(showFiveNames).slice(0,1);
+    let whoIs = _.shuffle(fiveNames)[0];
     //console.log(typeof whoIs);
     //console.log(whoIs);
 
-    checkIfNameMatch(showFiveNames, whoIs);
+    checkIfNameMatch(fiveNames, whoIs);
     return (
         `
-            <div class="who-is">${whoIs}</div>
+            <div class="who-is">${whoIs.firstName} ${whoIs.lastName}</div>
             <ul>${showFiveNames}</ul>
         `
     );
 };
-
-
-
