@@ -11,6 +11,7 @@
 }
 
 .container .start-playing button {
+    margin-top: 20px;
     width: 112px;
     font-size: 18px;
 }
@@ -35,6 +36,7 @@
     cursor: pointer;
     text-align: center;
     font-size: 22px;
+    padding-right: 8px;
 }
 
 .container #display-data .willow-names {
@@ -42,28 +44,42 @@
     position: relative;
     bottom: 46px;
     color: #ffffff;
-    padding: 260px 17px 19px 59px;
-    /*background: rgb(0, 0, 0); !* fallback color *!*/
-    /*background: rgba(0, 0, 0, 0.7);*/
-    display: none;
-}
-
-.container #display-data .willow-id {
-    /*display: none;*/
-    font-size: 12px;
-}
-
-.container #display-data #winner {
-    font: 100 32px "Helvetica Neue",Helvetica,Arial,sans-serif;
-
 }
 
 .container #display-data .who-is {
     text-align: center;
     padding: 35px 0 40px 0;
+    font: 100 32px "Helvetica Neue",Helvetica,Arial,sans-serif;
+
 }
 
 .container #display-data .who-is img {
     display: none;
 }
+
+.container #display-data .emp-list .hide-me {
+    font-size: 20px;
+    -webkit-transition: all .2s linear;
+    transition: all .5s linear;
+    opacity: 1;
+    position: relative;
+    top: -50px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    background: rgba(192,192,192,0.4);
+    display: none;
+}
+
+
+.container #display-data .right-name {
+    background-color: rgba(0,200,0,0.5);
+}
+
+.container #display-data .wrong-name {
+    background-color: rgba(200,0,0,0.5);
+}
+
+
+
 
