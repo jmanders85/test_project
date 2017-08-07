@@ -22,7 +22,7 @@ export let shuffle = (res) => {
     let whoIs = _.shuffle(fiveNames)[0];
 
     let changeButtonName = document.getElementById("start-game");
-    changeButtonName.innerHTML === 'go' ?  changeButtonName.innerHTML = 'play again' : false;
+    if (changeButtonName.innerHTML === 'go') changeButtonName.innerHTML = 'play again';
 
     checkIfNameMatch(showFiveNames, whoIs);
     return (
