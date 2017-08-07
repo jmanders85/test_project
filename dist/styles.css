@@ -123,4 +123,8 @@ and (max-device-width : 736px) {
     .container #display-data .emp-list .hide-me {
         width: 100%;
     }
+
+    .container #display-data img {
+        max-width: none;
+    }
 }
