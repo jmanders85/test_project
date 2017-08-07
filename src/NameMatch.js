@@ -3,7 +3,7 @@ import j from 'jquery';
 export let checkIfNameMatch = (showFiveNames, whoIs) => {
     j(function(){
         //add unique id for the name to be guessed
-        j('.who-is .willow-names').attr('id', 'winner').removeClass('willow-names');
+        j('.who-is').attr('id', 'winner').removeClass('willow-names');
 
         //drill into inner node of each object and get ids
         let winnerId = whoIs.id;

@@ -10,7 +10,7 @@ export let shuffle = (res) => {
                    <li class="emp-list">
                      <img class="willow-img" id="${name.id}" src="${name.headshot.url}">
                      <span class="hide-me">
-                     <p>${name.firstName} ${name.lastName}</p>
+                     <p class="willow-names">${name.firstName} ${name.lastName}</p>
                      </span>
                    </li>
                 `
