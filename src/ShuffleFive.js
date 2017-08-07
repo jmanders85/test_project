@@ -9,8 +9,8 @@ export let shuffle = (res) => {
             a + `
                    <li class="emp-list">
                      <img class="willow-img" id="${name.id}" src="${name.headshot.url}">
-                     <span>
-                     <p class="hide-me">${name.firstName} ${name.lastName}</p>
+                     <span class="hide-me">
+                     <p>${name.firstName} ${name.lastName}</p>
                      </span>
                    </li>
                 `
@@ -20,6 +20,9 @@ export let shuffle = (res) => {
 
     //shuffle and output one element of the array
     let whoIs = _.shuffle(fiveNames)[0];
+
+    let changeButtonName = document.getElementById("start-game");
+    changeButtonName.innerHTML === 'go' ?  changeButtonName.innerHTML = 'play again' : false;
 
     checkIfNameMatch(showFiveNames, whoIs);
     return (

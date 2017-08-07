@@ -1,9 +1,8 @@
 import {handleFetch} from './FetchData';
 
 let app = () => {
-    //fetch data on click
+    //fetch ajax data upon click
     document.getElementById('start-game').addEventListener("click", handleFetch);
-    //handleFetch();
 };
 app();
 

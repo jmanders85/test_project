@@ -2,12 +2,13 @@
     margin: 0 auto;
     width: 100%;
     max-width: 1280px;
+    padding-bottom: 70px;
 }
 
 .container .start-playing {
     margin: 0 auto;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 .container .start-playing button {
@@ -26,17 +27,18 @@
     padding: 0;
     margin: 0;
     width: 100%;
-    text-align: center;
 }
 
 .container #display-data .emp-list {
-    width: 235px;
+    position: relative;
+    width: 20%;
+    height: 300px;
     display: inline-block;
     list-style: none;
     cursor: pointer;
-    text-align: center;
-    font-size: 22px;
     padding-right: 8px;
+    float: left;
+    text-align: center;
 }
 
 .container #display-data .willow-names {
@@ -58,28 +60,67 @@
 }
 
 .container #display-data .emp-list .hide-me {
-    font-size: 20px;
-    -webkit-transition: all .2s linear;
-    transition: all .5s linear;
-    opacity: 1;
-    position: relative;
-    top: -50px;
-    padding: 10px;
-    text-align: center;
-    color: white;
-    background: rgba(192,192,192,0.4);
     display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 8px;
+    left: 0;
+    padding: 10px;
 }
 
+.container #display-data .emp-list .hide-me p {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all .2s linear;
+    transition: all .5s linear;
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    right: 0;
+}
 
 .container #display-data .right-name {
-    background-color: rgba(0,200,0,0.5);
+    background-color: rgba(117,203,196, 0.5);
+    border: 5px solid #75cbc4
 }
 
 .container #display-data .wrong-name {
     background-color: rgba(200,0,0,0.5);
+    border: 5px solid #e52d27
 }
 
+/*reposition LIs*/
+/* iPad */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (device-aspect-ratio: 3/4)
+and (orientation : portrait){
+    .container #display-data .emp-list {
+        width: 50%;
+        margin-bottom: 30px;
+    }
 
+    .container #display-data .emp-list .hide-me {
+        right: 38px;
+        left: 31px;
+    }
+}
 
+/* Mobile */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 736px) {
+    .container #display-data .emp-list {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 0;
+    }
 
+    .container #display-data .emp-list .hide-me {
+        width: 100%;
+    }
+}
