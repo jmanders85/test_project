@@ -1,4 +1,6 @@
 import axios from 'axios';
+import _ from 'lodash';
+
 import {shuffle} from './ShuffleFive';
 
 const api = 'https://willowtreeapps.com/api/v1.0/profiles/';
