@@ -5,7 +5,7 @@ import {shuffle} from './ShuffleFive';
 
 const api = 'https://willowtreeapps.com/api/v1.0/profiles/';
 
-export let handleFetch = () => {
+export let handleFetch = (mattName) => {
     //set where to display fetched results
     let willowTreeTeam = document.getElementById('display-data');
 

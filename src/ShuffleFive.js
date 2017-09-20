@@ -4,10 +4,11 @@ import {handleFetch} from './FetchData';
 
 
 export let shuffle = (res) => {
+    let fiveNames = '';
     //shuffle && get 5 elements at time && Reduce it to a string, (fix for comas when I mapped the Array)
     const matt = res.data.filter(o => o.firstName === 'Matthew');
     if (matt) {
-        var fiveNames =_.shuffle(matt).slice(0,5);
+        fiveNames =_.shuffle(matt).slice(0,5);
     }
     else {
         fiveNames = _.shuffle(res.data).slice(0,5);
