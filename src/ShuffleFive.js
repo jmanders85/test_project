@@ -1,5 +1,8 @@
 import _ from 'lodash';
 import {checkIfNameMatch} from "./NameMatch";
+import {handleFetch} from './FetchData';
+
+
 
 export let shuffle = (namesToDisplay) => {
     //shuffle && get 5 elements at time && Reduce to get rid of comas
@@ -17,13 +20,16 @@ export let shuffle = (namesToDisplay) => {
         )
 
     }, '');
+    //console.log(typeof showFiveNames);
+    //console.log(showFiveNames);
 
-    //shuffle and output one element of the array
+    //shuffle and output one name of the array
     let whoIs = _.shuffle(fiveNames)[0];
 
     let changeButtonName = document.getElementById("start-game");
     if (changeButtonName.innerHTML === 'go') changeButtonName.innerHTML = 'play again';
 
+    //invoke method passing needed data as parameters
     checkIfNameMatch(showFiveNames, whoIs);
     return (
         `
