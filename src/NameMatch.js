@@ -1,62 +1,22 @@
-import jquery from 'jquery';
+import j from 'jquery';
 
 export let checkIfNameMatch = (showFiveNames, whoIs) => {
-    jquery(function(){
-        //console.log(showFiveNames);
-        //console.log(whoIs);
-
-        //add unique id for name to be guessed
-        jquery('.who-is .willow-names').attr('id', 'winner').removeClass('willow-names');
+    j(function(){
+        //add unique id for the name to be guessed
+        j('.who-is').attr('id', 'winner').removeClass('willow-names');
 
         //drill into inner node of each object and get ids
-        let rightName = jquery('.who-is .willow-id');
-        let listOfNames = document.getElementsByClassName('willow-id');
+        let winnerId = whoIs.id;
+        let listOfImages = document.getElementsByClassName('willow-img');
 
-        //ids ready for use
-        let rightNameId = rightName[0].innerHTML;
-        let targetId = listOfNames[0].innerHTML;
-
-        //see object ids here
-        console.log(targetId);
-        console.log(rightNameId);
-
-        //this would be the desired behavior HOWEVER with images checking against ids. Since I'll not print nasty id's to the DOM
-        for (let i = 0; i < listOfNames.length; i++) {
-            //Ps:click on each id and see results
-            jquery(listOfNames[i]).click(function () {
-                let clickedText = this.innerHTML;
-
-                if (rightNameId === clickedText) {
-                    console.log('yes!');
-                    jquery(this).css("border", "3px solid green");
-                }
-                else {
-                    console.log('hell no!');
-                    jquery(this).css("border", "3px solid red");
-                }
+        for (let i = 0; i < listOfImages.length; i++) {
+            j(listOfImages[i]).click(function (e) {
+            //does the winnerID match the clicked img id? (e.target.id)
+            winnerId === e.target.id ?
+                //reduce the matched set of elements to one at a specific index
+                j(this).siblings(".hide-me").eq(0).addClass('right-name').show() :
+                j(this).siblings(".hide-me").eq(0).addClass('wrong-name').show();
             })
         }
-
-
-        //Blocked HERE:
-        //On loop through object. Event listener on IMG,
-        //if ids match show green else show red color
-
-        /*
-        jquery('.emp-list').click(function () {
-            for (let i= 0; i < listOfNames.length; i++) {
-                let clickedText = listOfNames[i].innerHTML;
-
-                if (rightNameId === clickedText) {
-                    console.log('yes!');
-                    jquery(this).css("border", "3px solid green");
-                }
-                else {
-                    console.log('hell no!');
-                    jquery(this).css("border", "3px solid red");
-                }
-            }
-        })
-        */
     });
 };

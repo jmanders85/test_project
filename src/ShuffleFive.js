@@ -1,36 +1,39 @@
 import _ from 'lodash';
 import {checkIfNameMatch} from "./NameMatch";
+import {handleFetch} from './FetchData';
 
-//import jquery from 'jquery';
 
-export let shuffle = (res) => {
-    //shuffle && iterate
-    let names = _.shuffle(res.data.items
-        .map(name => {
-            //return name.firstName.concat(name.lastName).concat(`<img class="willow-img" src="${name.headshot.url}">`);
 
-               return (`
+export let shuffle = (namesToDisplay) => {
+    //shuffle && get 5 elements at time && Reduce to get rid of comas
+    const fiveNames = _.shuffle(namesToDisplay.data).slice(0,5);
+    const showFiveNames = fiveNames.reduce((a, name) => {
+        return (
+            a + `
                    <li class="emp-list">
-                     <img class="willow-img" src="${name.headshot.url}">
-                     <span class="willow-names">${name.firstName} ${name.lastName}</span>
-                     <span class="willow-id">${name.id}</span>
+                     <img class="willow-img" id="${name.id}" src="${name.headshot.url}">
+                     <span class="hide-me">
+                     <p class="willow-names">${name.firstName} ${name.lastName}</p>
+                     </span>
                    </li>
-                `)
+                `
+        )
 
-        })
-    );
-
-    //extract 1st element through the 5th element && remove comas in between
-    let showFiveNames = names.splice(0, 5);
+    }, '');
+    //console.log(typeof showFiveNames);
     //console.log(showFiveNames);
-    let whoIs = _.shuffle(showFiveNames).slice(0,1);
-    //console.log(typeof whoIs);
-    //console.log(whoIs);
 
+    //shuffle and output one name of the array
+    let whoIs = _.shuffle(fiveNames)[0];
+
+    let changeButtonName = document.getElementById("start-game");
+    if (changeButtonName.innerHTML === 'go') changeButtonName.innerHTML = 'play again';
+
+    //invoke method passing needed data as parameters
     checkIfNameMatch(showFiveNames, whoIs);
     return (
         `
-            <div class="who-is">${whoIs}</div>
+           <div class="who-is">${whoIs.firstName} ${whoIs.lastName}</div>
             <ul>${showFiveNames}</ul>
         `
     );
