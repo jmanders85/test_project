@@ -11,9 +11,9 @@ export let handleFetch = (nameToFilterBy) => {
         let willowTreeTeam = document.getElementById('display-data');
         //fetch data
         axios.get(api).then(res => {
-            let namesToDisplay = res;
+            let namesToDisplay = res.data;
             if (nameToFilterBy !== undefined) {
-                namesToDisplay = res.data.filter(o => o.firstName === nameToFilterBy)
+                namesToDisplay = namesToDisplay.filter(o => o.firstName === nameToFilterBy)
             }
             willowTreeTeam.innerHTML = shuffle(namesToDisplay);
         }).catch(err => console.log(err));
