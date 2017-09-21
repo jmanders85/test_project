@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import {checkIfNameMatch} from "./NameMatch";
 
-export let shuffle = (res) => {
+export let shuffle = (namesToDisplay) => {
     //shuffle && get 5 elements at time && Reduce to get rid of comas
-    const fiveNames = _.shuffle(res.data.items).slice(0,5);
+    const fiveNames = _.shuffle(namesToDisplay.data).slice(0,5);
     const showFiveNames = fiveNames.reduce((a, name) => {
         return (
             a + `
